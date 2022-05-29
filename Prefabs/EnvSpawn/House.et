@@ -1,0 +1,13 @@
+GenericEntity {
+ ID "59795C145A75379C"
+ components {
+  Hierarchy "{59795C2B269520ED}" {
+  }
+  SCR_EnvSpawnerComponent "{59795C2CBC44C81E}" {
+   m_rnDefaultPrefab "{79CE8730C95EFD23}Prefabs/Structures/Houses/Village/House_Mountain_E_1I01_Base.et"
+  }
+  RplComponent "{59795C2B07E2BCF8}" {
+  }
+ }
+ coords -19.795 -0.165 12.96
+}

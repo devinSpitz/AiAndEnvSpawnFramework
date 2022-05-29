@@ -1,0 +1,16 @@
+RLC_SpawnTrigger {
+ ID "59795C1478AB39DB"
+ components {
+  Hierarchy "{59795C2B364798F9}" {
+  }
+  RplComponent "{59795C2B12D30E75}" {
+  }
+ }
+ coords 10495.299 1.032 1534.003
+ TriggerShapeType Sphere
+ SphereRadius 35.3
+ TriggerActivationType "All changes"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ m_bDelete 1
+}

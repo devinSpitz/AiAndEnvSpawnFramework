@@ -1,0 +1,24 @@
+RLC_SpawnTrigger {
+ components {
+  Hierarchy "{59795C2B364798F9}" {
+  }
+  RplComponent "{59795C2B12D30E75}" {
+  }
+ }
+ coords 10495.299 1.032 1534.003
+ TriggerShapeType Sphere
+ SphereRadius 35.3
+ DrawShape 1
+ TriggerActivationType "All changes"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ m_bDelete 1
+ {
+  GenericEntity : "{05B22D516E01E68B}Prefabs/AiSpawns/PatrolAiPrefab.et" {
+   coords 4.762 0.106 -12.684
+  }
+  SCR_DefendWaypoint : "{93B8DB545D91C857}Prefabs/AiSpawns/StandStillAiPrefab.et" {
+   coords 15.773 0.708 1.525
+  }
+ }
+}

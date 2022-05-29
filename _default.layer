@@ -1,0 +1,6 @@
+GenericEntity : "{07FBB9A2F51332E4}Prefabs/Rocks/Granite/Granite_BeachStone_01.et" {
+ coords 7901.246 0.001 4036.853
+}
+GenericEntity : "{B94DDC61F0B7F9D7}Prefabs/Rocks/Rock_Base.et" {
+ coords 7901.064 0.001 4038.611
+}
