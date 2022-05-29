@@ -7,6 +7,8 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 {
 	[Attribute("0", UIWidgets.CheckBox, "If checked, delete/Despawn when no player is in Trigger!")]
 	protected bool m_bDelete;	
+	[Attribute("0", UIWidgets.CheckBox, "Update Navmesh when spawning?")]
+	protected bool updateNavmesh;	
 	
 	
 	//[Attribute("0", UIWidgets.CheckBox, "If checked, generates the NavMesh for the env when spawning them.")]
@@ -20,6 +22,8 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 	//protected int PercentageAi;
 	
 	BaseGameMode GameMode;
+	IEntity Owner;
+	ArmaReforgerScripted GameSingleEntity;
 	private RplComponent m_pRplComponent;
 	protected int m_iCount = 0; // keep count of enemies
 	
@@ -30,6 +34,7 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 	
 	override void OnInit(IEntity owner)
 	{
+		Owner = owner;
 		super.OnInit(owner);
 		if (!GetGame().InPlayMode())
             return;
@@ -41,8 +46,8 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 		if(m_pRplComponent.IsMaster())
 		
 		
-		auto game =  GetGame();
-		GameMode = GetGame().GetGameMode();
+		GameSingleEntity =  GetGame();
+		GameMode = GameSingleEntity.GetGameMode();
 		RLC_Statics.GetAllChildren(this,children);
 		//Get components we need
 		foreach (int i, IEntity child : children)
@@ -120,6 +125,7 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 			return; // nothing to spawn
 		}
 		
+		SCR_AIWorld aiWorld = SCR_AIWorld.Cast(GameSingleEntity.GetAIWorld());
 		foreach (int i, RLC_AISpawnerComponent ai : childrenAiSpawner)
 		{	
 			SpawnAi(ai);
@@ -128,6 +134,18 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 		{	
 			SpawnEnv(env);
 		}
+				
+		if (updateNavmesh && aiWorld)
+		{
+			foreach (int i, SCR_EnvSpawnerComponent env : childrenEnvSpawner)
+			{	
+				array<ref Tuple2<vector, vector>> areas = new array<ref Tuple2<vector, vector>>; //--- Min, max
+				aiWorld.GetNavmeshRebuildAreas(env.GetSpawnedenviroment(), areas);
+				GameSingleEntity.GetCallqueue().CallLater(aiWorld.RequestNavmeshRebuildAreas, 1000, false, areas); //--- Called *before* the entity is deleted with a delay, ensures the regeneration doesn't accidentaly get anything from the entity prior to full destruction
+			}
+		}
+
+		
 		
 	}
 	

@@ -13,12 +13,32 @@ RLC_SpawnTrigger {
  PeriodicQueries 1
  ClassFilter "ChimeraCharacter"
  m_bDelete 1
+ updateNavmesh 1
  {
   GenericEntity : "{05B22D516E01E68B}Prefabs/AiSpawns/PatrolAiPrefab.et" {
    coords 4.762 0.106 -12.684
+   {
+    SCR_AIWaypoint {
+     ID "59795C140C902FCC"
+     coords -7.123 -0.028 8.587
+    }
+    SCR_AIWaypoint {
+     ID "59795C140C902FCD"
+     coords -0.412 -0.028 -13.217
+    }
+    SCR_AIWaypoint {
+     ID "59795C140C904619"
+     coords -20.562 -0.028 -12.977
+    }
+    SCR_AIWaypoint {
+     ID "59795C140C93C611"
+     coords -20.209 -0.028 -0.367
+    }
+   }
   }
   GenericEntity : "{562588DFB029F654}Prefabs/EnvSpawn/House.et" {
-   coords -8.551 0 3.271
+   coords -4.299 0 -18.426
+   angleY 87.07
   }
   SCR_DefendWaypoint : "{93B8DB545D91C857}Prefabs/AiSpawns/StandStillAiPrefab.et" {
    coords 15.773 0.708 1.525
