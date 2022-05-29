@@ -45,3 +45,13 @@ RLC_SpawnTrigger {
   }
  }
 }
+RLC_SpawnTrigger : "{C8AE586E0B9D4280}Prefabs/RLC_SpawnTrigger.et" {
+ DrawShape 1
+ m_bDelete 0
+ updateNavmesh 1
+ {
+  GenericEntity : "{953607E56D14C391}Prefabs/EnvSpawn/Vehicle.et" {
+   coords -9.843 0 17.642
+  }
+ }
+}

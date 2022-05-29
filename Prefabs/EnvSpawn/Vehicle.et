@@ -1,0 +1,9 @@
+GenericEntity : "{562588DFB029F654}Prefabs/EnvSpawn/House.et" {
+ ID "59795C145A75379C"
+ components {
+  SCR_EnvSpawnerComponent "{59795C2CBC44C81E}" {
+   m_rnDefaultPrefab "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et"
+  }
+ }
+ coords 10489.843 2.382 1552.447
+}
