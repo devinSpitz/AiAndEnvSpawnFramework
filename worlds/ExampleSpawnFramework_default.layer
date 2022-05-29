@@ -17,6 +17,9 @@ RLC_SpawnTrigger {
   GenericEntity : "{05B22D516E01E68B}Prefabs/AiSpawns/PatrolAiPrefab.et" {
    coords 4.762 0.106 -12.684
   }
+  GenericEntity : "{562588DFB029F654}Prefabs/EnvSpawn/House.et" {
+   coords -8.551 0 3.271
+  }
   SCR_DefendWaypoint : "{93B8DB545D91C857}Prefabs/AiSpawns/StandStillAiPrefab.et" {
    coords 15.773 0.708 1.525
   }
