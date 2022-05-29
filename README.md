@@ -1,7 +1,8 @@
 AiAndEnvSpawnFramework
 =======
  - It does spawn and despawn on player contact just with hierarchie no naming
- - It does adding the waypoint automatically to the ai as in the example shown and only how in the example shown :D
+ - It does adding the waypoint automatically to the ai without naming them as in the example shown and only how in the example shown :D
+ - It does recreate the navmesh for all created env if wanted
 
 Donate:
 =======
