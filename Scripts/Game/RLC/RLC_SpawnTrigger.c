@@ -19,7 +19,7 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 	//[Attribute("0", UIWidgets.Slider, "How many percentige of the AI spawns should be populated", "0 100 1")]
 	//protected int PercentageAi;
 	
-	
+	BaseGameMode GameMode;
 	private RplComponent m_pRplComponent;
 	protected int m_iCount = 0; // keep count of enemies
 	
@@ -40,6 +40,9 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 		
 		if(m_pRplComponent.IsMaster())
 		
+		
+		auto game =  GetGame();
+		GameMode = GetGame().GetGameMode();
 		RLC_Statics.GetAllChildren(this,children);
 		//Get components we need
 		foreach (int i, IEntity child : children)
@@ -71,13 +74,14 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
     override void OnActivate(IEntity ent)
     {
         ++m_iCount; // When activated (i.e. when an alive USSR soldier entity enters), add 1 to the number m_iCount
-		if(m_iCount==1&&m_pRplComponent.IsMaster()) Spawn(); // otherwise it should already be spawn
+		if(m_iCount==1&&m_pRplComponent.IsMaster() && GameMode.IsLoaded()) Spawn(); // otherwise it should already be spawn
     }
  
     override void OnDeactivate(IEntity ent)
     {        
+		
         --m_iCount; // When deactivated (i.e. if the soldier leaves or dies) take away 1 to the number m_iCount
-		if(m_iCount==0 && m_pRplComponent.IsMaster()&&m_bDelete) 
+		if(m_iCount==0 && m_pRplComponent.IsMaster()&&m_bDelete && GameMode.IsLoaded()) 
 		{
 			Despawn();
 			//todo if master maybe delete?
