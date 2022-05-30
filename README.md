@@ -1,8 +1,14 @@
 AiAndEnvSpawnFramework
 =======
- - It does spawn and despawn on player contact just with hierarchie no naming
- - It does adding the waypoint automatically to the ai without naming them as in the example shown and only how in the example shown :D
+ - It does spawn and despawns on player contact just with hierarchy no naming
+ - It does add the waypoint automatically to the ai without naming them as in the example shown and only how in the example shown :D
  - It does recreate the navmesh for all created env if wanted
+ - It does only spawn a percentage amount of the ai randomized if wanted
+ - It does respawn Ai after dying if wanted
+ - It does spawn Vehicles and Enviroment
+ - It can be called outside of the trigger function by script by simple calling Spawn() or Despawn()
+ - It does support 4 types of Waypoints: Patrol, Cycle, GetInNearest, Defend
+
 
 Donate:
 =======
