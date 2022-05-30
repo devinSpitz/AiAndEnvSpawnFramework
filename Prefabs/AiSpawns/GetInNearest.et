@@ -1,0 +1,26 @@
+SCR_BoardingWaypoint : "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et" {
+ ID "568C71ECE1AF6020"
+ components {
+  Hierarchy "{597B3BA3C4FAACEA}" {
+  }
+  RplComponent "{597B3BA3C709A341}" {
+  }
+ }
+ coords -7.913 0.088 19.001
+ CompletionRadius 10
+ m_bGunnerAllowed 0
+ {
+  GenericEntity {
+   ID "597B3BA2C8F1D2D1"
+   components {
+    Hierarchy "{59795C2B3A45BC26}" {
+    }
+    RLC_AISpawnerComponent "{59795C2DF6D90234}" {
+     m_rnDefaultPrefab "{D807C7047E818489}Prefabs/internal/BLUFOR/Group_US_SniperTeam.et"
+    }
+    RplComponent "{59795C2B1A79B849}" {
+    }
+   }
+  }
+ }
+}
