@@ -16,7 +16,10 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 	
 	[Attribute("0", UIWidgets.Slider, "How many percentige of the AI spawns should be populated", "0 100 1")]
 	protected int PercentageAi;
-	
+
+	[Attribute("USSR", UIWidgets.EditBox, "Faction")]
+	FactionKey m_faction;
+		
 	BaseGameMode GameMode;
 	IEntity Owner;
 	ArmaReforgerScripted GameSingleEntity;
@@ -67,7 +70,7 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
     override bool ScriptedEntityFilterForQuery(IEntity ent) {
         SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);
         if (!cc) return false; // If the entity is not a person, filter it out
-        if (cc.GetFactionKey() != "USSR") return false; // If the entity does not have the Faction key of USSR, filter it out
+        if (cc.GetFactionKey() != m_faction) return false; // If the entity does not have the Faction key of USSR, filter it out
         if (!IsAlive(cc)) return false; // If the entity is dead, filter it out
         return true; // Otherwise, include it!
     }
