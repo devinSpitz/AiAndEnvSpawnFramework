@@ -47,7 +47,8 @@ class RLC_AISpawnerComponent : ScriptComponent
 	
 	void RemoveSpawned()
 	{
-		RplComponent.DeleteRplEntity(m_pSpawnedAgent, false);
+		if(m_pSpawnedAgent)
+			RplComponent.DeleteRplEntity(m_pSpawnedAgent, false);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -113,6 +114,7 @@ class RLC_AISpawnerComponent : ScriptComponent
 		
 		AIWaypointCycle cycle;
 		SCR_DefendWaypoint defend;
+		SCR_BoardingWaypoint onBoard;
 		
 		if(!children || children.Count()<=0) 
 		{
@@ -123,15 +125,16 @@ class RLC_AISpawnerComponent : ScriptComponent
 				return false;
 			}
 			defend = SCR_DefendWaypoint.Cast(SCR_DefendWaypoint.Cast(parent));
-			if(!defend)
+			onBoard = SCR_BoardingWaypoint.Cast(SCR_BoardingWaypoint.Cast(parent));
+			if(!defend && !onBoard)
 			{
-				Debug.Error("RLC_AISpawnerComponent cannot hook to the waypoint, it is not a child of SCR_DefendWaypoint!");
+				Debug.Error("RLC_AISpawnerComponent cannot hook to the waypoint, it is not a child of SCR_DefendWaypoint nor a SCR_BoardingWaypoint!");
 				return false;
 			}
 			
 		}
 		
-		if(!defend)
+		if(!defend && !onBoard)
 		{
 			ref array<AIWaypoint> patrolWaypoints = new array<AIWaypoint>();
 			foreach (IEntity waypointEntity : children)
@@ -163,6 +166,11 @@ class RLC_AISpawnerComponent : ScriptComponent
 		{
 			agent.AddWaypoint(defend);
 		}
+		else if(onBoard)
+		{
+			agent.AddWaypoint(onBoard);
+		}
+		
 		
 		
 		//respawn

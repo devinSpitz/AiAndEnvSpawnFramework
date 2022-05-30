@@ -9,8 +9,10 @@ RLC_SpawnTrigger {
  coords 10495.299 1.032 1534.003
  TriggerShapeType Sphere
  SphereRadius 35.3
+ DrawShape 0
  TriggerActivationType "All changes"
  PeriodicQueries 1
  ClassFilter "ChimeraCharacter"
  m_bDelete 1
+ updateNavmesh 1
 }

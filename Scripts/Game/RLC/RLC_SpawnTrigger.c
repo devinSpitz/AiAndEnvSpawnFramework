@@ -11,15 +11,11 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 	protected bool updateNavmesh;	
 	
 	
-	//[Attribute("0", UIWidgets.CheckBox, "If checked, generates the NavMesh for the env when spawning them.")]
-	//protected bool m_bGenMeshOnSpawn;
+	[Attribute("0", UIWidgets.CheckBox, "Check if the AI spawns should be randomized!")]
+	protected bool m_bRandomizedSpawns;	
 	
-	//future
-	//[Attribute("0", UIWidgets.CheckBox, "Check if the AI spawns should be randomized!")]
-	//protected bool m_bRandomizedSpawns;	
-	
-	//[Attribute("0", UIWidgets.Slider, "How many percentige of the AI spawns should be populated", "0 100 1")]
-	//protected int PercentageAi;
+	[Attribute("0", UIWidgets.Slider, "How many percentige of the AI spawns should be populated", "0 100 1")]
+	protected int PercentageAi;
 	
 	BaseGameMode GameMode;
 	IEntity Owner;
@@ -126,7 +122,29 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 		}
 		
 		SCR_AIWorld aiWorld = SCR_AIWorld.Cast(GameSingleEntity.GetAIWorld());
-		foreach (int i, RLC_AISpawnerComponent ai : childrenAiSpawner)
+		
+		array<RLC_AISpawnerComponent> aisToSpawn = new array<RLC_AISpawnerComponent>();
+		aisToSpawn.Copy(childrenAiSpawner);
+		if(m_bRandomizedSpawns && PercentageAi<100)
+		{
+			
+			array<RLC_AISpawnerComponent> aisToSpawnTmp =  new array<RLC_AISpawnerComponent>;
+			int howMany = Math.Round((aisToSpawn.Count()/100)*PercentageAi);
+			
+			for(int i = 0; i < howMany; ++i)
+			{
+				auto newIndex = aisToSpawn.GetRandomIndex();
+				aisToSpawnTmp.Insert(aisToSpawn[newIndex]);
+				aisToSpawn.Remove(newIndex);
+			}
+			
+			aisToSpawn = aisToSpawnTmp;
+				
+		}
+		
+		
+		
+		foreach (int i, RLC_AISpawnerComponent ai : aisToSpawn)
 		{	
 			SpawnAi(ai);
 		}		

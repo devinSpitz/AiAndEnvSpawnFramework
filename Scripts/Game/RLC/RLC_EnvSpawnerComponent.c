@@ -36,7 +36,8 @@ class SCR_EnvSpawnerComponent : ScriptComponent
 	
 	void RemoveSpawned()
 	{
-		RplComponent.DeleteRplEntity(m_pSpawnedEnv, false);
+		if(m_pSpawnedEnv)
+			RplComponent.DeleteRplEntity(m_pSpawnedEnv, false);
 	}
 	
 	//------------------------------------------------------------------------------------------------

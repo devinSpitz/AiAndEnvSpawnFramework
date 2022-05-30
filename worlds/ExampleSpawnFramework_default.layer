@@ -1,57 +1,93 @@
-RLC_SpawnTrigger {
- components {
-  Hierarchy "{59795C2B364798F9}" {
-  }
-  RplComponent "{59795C2B12D30E75}" {
-  }
- }
- coords 10495.299 1.032 1534.003
- TriggerShapeType Sphere
- SphereRadius 35.3
- DrawShape 1
- TriggerActivationType "All changes"
- PeriodicQueries 1
- ClassFilter "ChimeraCharacter"
- m_bDelete 1
- updateNavmesh 1
+$grp RLC_SpawnTrigger {
  {
-  GenericEntity : "{05B22D516E01E68B}Prefabs/AiSpawns/PatrolAiPrefab.et" {
-   coords 4.762 0.106 -12.684
-   {
-    SCR_AIWaypoint {
-     ID "59795C140C902FCC"
-     coords -7.123 -0.028 8.587
+  components {
+   Hierarchy "{59795C2B364798F9}" {
+   }
+   RplComponent "{59795C2B12D30E75}" {
+   }
+  }
+  coords 10495.299 1.032 1534.003
+  TriggerShapeType Sphere
+  SphereRadius 35.3
+  DrawShape 1
+  TriggerActivationType "All changes"
+  PeriodicQueries 1
+  ClassFilter "ChimeraCharacter"
+  m_bDelete 1
+  updateNavmesh 1
+  PercentageAi 100
+  {
+   GenericEntity : "{05B22D516E01E68B}Prefabs/AiSpawns/PatrolAiPrefab.et" {
+    coords 4.762 0.106 -12.684
+    {
+     SCR_AIWaypoint {
+      ID "59795C140C902FCC"
+      coords -7.123 -0.028 8.587
+     }
+     SCR_AIWaypoint {
+      ID "59795C140C902FCD"
+      coords -0.412 -0.028 -13.217
+     }
+     SCR_AIWaypoint {
+      ID "59795C140C904619"
+      coords -20.562 -0.028 -12.977
+     }
+     SCR_AIWaypoint {
+      ID "59795C140C93C611"
+      coords -20.209 -0.028 -0.367
+     }
     }
-    SCR_AIWaypoint {
-     ID "59795C140C902FCD"
-     coords -0.412 -0.028 -13.217
+   }
+   GenericEntity : "{562588DFB029F654}Prefabs/EnvSpawn/House.et" {
+    coords -4.299 0 -18.426
+    angleY 87.07
+   }
+   SCR_DefendWaypoint : "{93B8DB545D91C857}Prefabs/AiSpawns/StandStillAiPrefab.et" {
+    coords 15.773 0.708 1.525
+   }
+   SCR_BoardingWaypoint : "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et" {
+    components {
+     Hierarchy "{597B3BA3C4FAACEA}" {
+     }
+     RplComponent "{597B3BA3C709A341}" {
+     }
     }
-    SCR_AIWaypoint {
-     ID "59795C140C904619"
-     coords -20.562 -0.028 -12.977
-    }
-    SCR_AIWaypoint {
-     ID "59795C140C93C611"
-     coords -20.209 -0.028 -0.367
+    coords -7.913 0.088 19.001
+    CompletionRadius 10
+    m_bGunnerAllowed 0
+    {
+     GenericEntity {
+      components {
+       Hierarchy "{59795C2B3A45BC26}" {
+       }
+       RLC_AISpawnerComponent "{59795C2DF6D90234}" {
+        m_rnDefaultPrefab "{D807C7047E818489}Prefabs/internal/BLUFOR/Group_US_SniperTeam.et"
+       }
+       RplComponent "{59795C2B1A79B849}" {
+       }
+      }
+     }
     }
    }
   }
-  GenericEntity : "{562588DFB029F654}Prefabs/EnvSpawn/House.et" {
-   coords -4.299 0 -18.426
-   angleY 87.07
-  }
-  SCR_DefendWaypoint : "{93B8DB545D91C857}Prefabs/AiSpawns/StandStillAiPrefab.et" {
-   coords 15.773 0.708 1.525
-  }
  }
-}
-RLC_SpawnTrigger : "{C8AE586E0B9D4280}Prefabs/RLC_SpawnTrigger.et" {
- DrawShape 1
- m_bDelete 0
- updateNavmesh 1
  {
-  GenericEntity : "{953607E56D14C391}Prefabs/EnvSpawn/Vehicle.et" {
-   coords -9.843 0 17.642
+  components {
+   Hierarchy "{597B3BA176CABD68}" {
+   }
+   RplComponent "{597B3BA176CABD6F}" {
+   }
+  }
+  coords 10495.299 1.032 1534.003
+  TriggerShapeType Sphere
+  SphereRadius 35.3
+  TriggerActivationType "First change"
+  PeriodicQueries 1
+  ClassFilter "ChimeraCharacter"
+  {
+   GenericEntity : "{953607E56D14C391}Prefabs/EnvSpawn/Vehicle.et" {
+    coords -13.146 0.611 17.642
+   }
   }
  }
 }

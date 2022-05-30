@@ -17,7 +17,6 @@ class RLC_Statics
  	
 	static RLC_AISpawnerComponent GetAiFromEnitity(IEntity entity,array<IEntity> childrenTmp)
 	{
-		auto result =  new Tuple2<RLC_AISpawnerComponent, IEntity>( null, null );
 		auto ai = RLC_AISpawnerComponent.Cast(entity.FindComponent(RLC_AISpawnerComponent));
 		if(ai) 
 		{
