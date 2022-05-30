@@ -1,0 +1,35 @@
+GenericEntity {
+ ID "597B3BA8060998E0"
+ components {
+  Hierarchy "{59795C2B3BA28F69}" {
+  }
+  RLC_AISpawnerComponent "{59795C2DF6D90234}" {
+   m_rnDefaultPrefab "{84E5BBAB25EA23E5}Prefabs/Groups/BLUFOR/Group_US_FireTeam.et"
+  }
+  RplComponent "{59795C2B1CFDDB81}" {
+  }
+ }
+ coords 10521.385 1.169 1547.204
+ {
+  $grp SCR_AIWaypoint : "{22A875E30470BD4F}Prefabs/AI/Waypoints/AIWaypoint_Patrol.et" {
+   {
+    ID "597B3BA8060998E2"
+    components {
+     Hierarchy "{59795C2B3D22CCEC}" {
+     }
+    }
+    coords -0.356 -0.028 -7.863
+    CompletionRadius 3
+   }
+   {
+    ID "597B3BA80609B370"
+    components {
+     Hierarchy "{59795C2B3ED63699}" {
+     }
+    }
+    coords 1.458 -0.028 -28.694
+    CompletionRadius 3
+   }
+  }
+ }
+}

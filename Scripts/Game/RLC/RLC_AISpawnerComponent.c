@@ -153,7 +153,15 @@ class RLC_AISpawnerComponent : ScriptComponent
 					cycle = tmpCycle;
 				}
 			}
-			cycle.SetWaypoints(patrolWaypoints);
+			if(cycle)
+			{
+				cycle.SetWaypoints(patrolWaypoints);	
+			}else{
+				foreach (AIWaypoint patrol : patrolWaypoints)
+				{
+					agent.AddWaypoint(patrol);
+				}
+			}
 		}
 		
 		//
