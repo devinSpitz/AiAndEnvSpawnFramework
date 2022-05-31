@@ -21,6 +21,7 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 	FactionKey m_faction;
 		
 	BaseGameMode GameMode;
+	bool alreadySpawned = false;
 	IEntity Owner;
 	ArmaReforgerScripted GameSingleEntity;
 	private RplComponent m_pRplComponent;
@@ -124,6 +125,8 @@ class RLC_SpawnTrigger : SCR_BaseTriggerEntity
 			return; // nothing to spawn
 		}
 		
+		
+		alreadySpawned = true;
 		SCR_AIWorld aiWorld = SCR_AIWorld.Cast(GameSingleEntity.GetAIWorld());
 		
 		array<RLC_AISpawnerComponent> aisToSpawn = new array<RLC_AISpawnerComponent>();
