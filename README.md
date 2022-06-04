@@ -1,6 +1,6 @@
 -- Deprecated --  AiAndEnvSpawnFramework
 =======
-Had to deprecate the package cause of breaking changes like renaming and making it more consistent with how it works. Sorry for that.
+Had to deprecate the package cause of breaking changes like renaming (Arma naming convention) and making it more consistent with how it works. Sorry for that.
 
 The new package can be found here and has also the ability to scale with player counts etc.
 https://github.com/devinSpitz/NightOps-DynamicSpawnFramework
