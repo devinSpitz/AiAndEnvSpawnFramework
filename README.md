@@ -1,5 +1,12 @@
-AiAndEnvSpawnFramework
+-- Deprecated --  AiAndEnvSpawnFramework
 =======
+Had to deprecate the package cause of breaking changes like renaming and making it more consistent with how it works. Sorry for that.
+
+The new package can be found here and has also the ability to scale with player counts etc.
+https://github.com/devinSpitz/NightOps-DynamicSpawnFramework
+
+
+
  - It does spawn and despawns on player contact just with hierarchy no naming
  - It does add the waypoint automatically to the ai without naming them as in the example shown and only how in the example shown :D
  - It does recreate the navmesh for all created env if wanted
